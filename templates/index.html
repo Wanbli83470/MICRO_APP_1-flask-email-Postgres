@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<title>DATA-collector-FLASK</title>
+</head>
+
+<body>
+
+<div style="height: 1080px" class="container-fluid bg-primary p-5">
+	
+<h1 class="text-white text-center">Collecting Height</h1>
+
+<h3 class="text-white text-center">Please fill the entire to get population statistics on height</h3>
+
+
+<form action="{{ url_for('success') }}" method="POST">
+  <div class="form-group text-white">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control"placeholder="Enter email",
+    name="email_name">
+  </div>
+  
+{% if condition == 0 %}
+  <hr class="bg-light">
+{% else %}
+  <hr class="bg-danger">
+{% endif %}
+
+  <div class="form-group text-white">
+    <label for="Height">Height</label>
+    <input type="number" class="form-control" id="exampleInputPassword1" placeholder="55", min="50", max="300", name="height_name">
+  </div>
+
+  <button type="submit" class="btn btn-light">Submit</button>
+</form>
+
+{% if condition == 1 %}
+<h3 class="text-white">Attention l'adresse email : <strong>{{ exist }}</strong> a déjà servi à la récolte d'information,  veuillez saisir une autre adresse
+</h3>
+{% endif %}
+</div>
+
+</body>
+</html>
